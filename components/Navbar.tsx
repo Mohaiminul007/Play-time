@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 // import { useRouter } from 'next/navigation';
 
 interface NavItem {
@@ -15,8 +17,7 @@ export default function Navbar() {
   // Define your navigation items here - customize these based on your routes
   const navItems: NavItem[] = [
     { label: 'Home', href: '/' },
-    { label: 'Work', href: '/work' },
-    { label: 'About', href: '/about' },
+    { label: 'Work', href: '/work' }
 
   ];
 
@@ -35,16 +36,17 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-6">
         {/* Logo */}
         <div className="text-black font-bold  text-2xl">
-          <span>LOGO</span>
+          {/* <a href="/"></a> */}
+          <Link href="/">LOGO</Link>
         </div>
 
         {/* Burger Menu Button */}
-        <div className='mx-2 mb-2 p-2 bg-black rounded-full'>
+        <div className='  p-2 bg-black rounded-full'>
 
         
         <button
           onClick={toggleMenu}
-          className="relative w-8 h-8 flex flex-col justify-center items-center space-y-1 z-50"
+          className="relative cursor-pointer w-8 h-8 flex flex-col justify-center items-center space-y-1 z-50"
           aria-label="Toggle menu"
         >
           <motion.span
@@ -107,7 +109,7 @@ export default function Navbar() {
                       key={item.href}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      className='grid grid-cols-2 text-white'
+                      className='grid mt-2 grid-cols-2 text-white'
                       transition={{ 
                         delay: index * 0.1,
                         duration: 0.3 

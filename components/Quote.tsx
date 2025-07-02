@@ -2,7 +2,7 @@ import React from "react";
 
 const Quote = () => {
   return (
-    <div className="relative h-screen w-full bg-[#f6e7ec] flex items-center justify-center overflow-hidden">
+    <div className="relative about h-screen w-full bg-[#f6e7ec] flex items-center justify-center overflow-hidden">
       {/* Text container */}
       <div className="text-center max-w-6xl px-6 z-10">
         <h1 className=" text-4xl mb-6 ">
