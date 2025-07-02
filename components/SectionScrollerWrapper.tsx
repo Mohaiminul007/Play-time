@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, ReactNode, JSX } from 'react';
 import { motion, Easing } from 'framer-motion';
+import Navbar from './Navbar'; // Import your new Navbar component
 
 interface SectionScrollerWrapperProps {
   children: ReactNode[];
@@ -15,7 +16,7 @@ export default function SectionScrollerWrapper({
   transitionDuration = 0.8,
   transitionEase = "easeInOut"
 }: SectionScrollerWrapperProps): JSX.Element {
-  const [currentSection, setCurrentSection] = useState<number>(0);
+  const [currentSection, setCurrentSection] = useState(0);
   const totalSections: number = children.length;
 
   useEffect(() => {
@@ -71,17 +72,20 @@ export default function SectionScrollerWrapper({
   }, [currentSection, totalSections]);
 
   return (
-    <div className="h-screen w-full overflow-hidden relative">
+    <div className="relative h-screen w-full overflow-hidden bg-black">
+      {/* Navbar Component */}
+      <Navbar />
+
       {/* Navigation dots */}
       {showNavigationDots && (
-        <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 space-y-3">
+        <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 flex flex-col space-y-3">
           {children.map((_, index: number) => (
             <button
               key={index}
               onClick={() => setCurrentSection(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSection 
-                  ? 'bg-white scale-125' 
+                index === currentSection
+                  ? 'bg-white scale-125'
                   : 'bg-white/40 hover:bg-white/60'
               }`}
             />
@@ -90,17 +94,24 @@ export default function SectionScrollerWrapper({
       )}
 
       {/* Sections */}
-      <motion.div
-        className="flex flex-col"
-        animate={{ y: `-${currentSection * 100}vh` }}
-        transition={{ duration: transitionDuration, ease: transitionEase }}
-      >
+      <div className="relative h-full">
         {children.map((child: ReactNode, index: number) => (
-          <div key={index} className="h-screen w-full flex-shrink-0">
+          <motion.div
+            key={index}
+            className="absolute inset-0 w-full h-full"
+            initial={false}
+            animate={{
+              y: `${(index - currentSection) * 100}%`,
+            }}
+            transition={{
+              duration: transitionDuration,
+              ease: transitionEase,
+            }}
+          >
             {child}
-          </div>
+          </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
