@@ -17,7 +17,8 @@ export default function Navbar() {
   // Define your navigation items here - customize these based on your routes
   const navItems: NavItem[] = [
     { label: 'Home', href: '/' },
-    { label: 'Work', href: '/work' }
+    { label: 'Work', href: '/work' },
+    { label: 'Quote', href: '/quote' }
 
   ];
 
@@ -37,7 +38,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="text-black font-bold  text-2xl">
           {/* <a href="/"></a> */}
-          <Link href="/">LOGO</Link>
+          <Link className='' href="/">LOGO</Link>
         </div>
 
         {/* Burger Menu Button */}

@@ -4,3 +4,6 @@
   transition: all 0.3s ease;
 }
 
+.quoteTitle{
+  @apply font-semibold text-center text-3xl
+}
