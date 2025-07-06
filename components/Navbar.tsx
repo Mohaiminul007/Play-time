@@ -18,7 +18,8 @@ export default function Navbar() {
   const navItems: NavItem[] = [
     { label: 'Home', href: '/' },
     { label: 'Work', href: '/work' },
-    { label: 'Quote', href: '/quote' }
+    { label: 'Quote', href: '/quote' },
+    { label: 'Contact Us', href: '/contactUs' }
 
   ];
 
@@ -101,7 +102,7 @@ export default function Navbar() {
                 duration: 0.4,
                 ease: 'easeInOut'
               }}
-              className="fixed  top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-gray-900/95 to-gray-800/95 backdrop-blur-lg z-40 pt-20 pb-8"
+              className="fixed  top-0 left-0 right-0 h-2/4 bg-gradient-to-b from-gray-900/95 to-gray-800/95 backdrop-blur-lg z-40 pt-20 pb-8"
             >
               <div className="container mx-auto px-6">
                 <ul className="space-y-4">

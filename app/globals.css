@@ -7,3 +7,7 @@
 .quoteTitle{
   @apply font-semibold text-center text-3xl
 }
+
+.FootIcon{
+  @apply w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors
+}
