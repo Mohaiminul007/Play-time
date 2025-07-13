@@ -1,7 +1,12 @@
-// import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { LogoSlider } from "@/components/LogoSlider";
 import React from "react";
 import { FaUsers, FaShieldAlt, FaChartLine } from "react-icons/fa";
+
+const Footer = () => (
+  <footer className="bg-gray-800 text-white p-6 text-center">
+    <p>&copy; 2025 Your Company. All rights reserved.</p>
+  </footer>
+);
 
 interface PricingPlan {
   title: string;
@@ -73,24 +78,26 @@ const pricingPlans: readonly PricingPlan[] = [
   },
 ];
 
-const page = () => {
+const Page = () => {
   return (
-    <div>
-      <div className="bg-white mb-24">{/* <Navbar /> */}</div>
+    <div className="min-h-screen">
+      {/* Header placeholder */}
+      <div className="bg-white h-16"></div>
 
       {/* Services Section */}
-      <div className="bg-[#ededed]">
-        <h2 className="text-center mb-10 pt-8 text-4xl font-semibold">
-          Our Services
-        </h2>
-        <p className="text-center mb-20 text-sm text-gray-600">
-          Especially favourable compliment but thoroughly unreserved saw she
-          themselves.
-        </p>
-        <section className="py-10 px-4 flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl xl:max-w-7xl w-full">
+      <div className="bg-gray-100">
+        <div className="container mx-auto px-4 py-16">
+          <h2 className="text-center mb-4 text-4xl font-semibold">
+            Our Services
+          </h2>
+          <p className="text-center mb-12 text-gray-600 max-w-2xl mx-auto">
+            Especially favourable compliment but thoroughly unreserved saw she
+            themselves.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Card 1 */}
-            <div className="bg-white shadow-md mx-auto rounded-xl p-6 w-full max-w-sm hover:shadow-xl transition">
+            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition-shadow duration-300">
               <div className="text-3xl mb-4 text-pink-600">
                 <FaUsers />
               </div>
@@ -104,7 +111,7 @@ const page = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white shadow-md mx-auto rounded-xl p-6 w-full max-w-sm hover:shadow-xl transition">
+            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition-shadow duration-300">
               <div className="text-3xl mb-4 text-blue-600">
                 <FaShieldAlt />
               </div>
@@ -119,7 +126,7 @@ const page = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white shadow-md mx-auto rounded-xl p-6 w-full max-w-sm hover:shadow-xl transition">
+            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition-shadow duration-300">
               <div className="text-3xl mb-4 text-pink-600">
                 <FaChartLine />
               </div>
@@ -133,42 +140,53 @@ const page = () => {
               </p>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="text-center mt-5 text-4xl font-semibold text-gray-900">
+            Teck We Use
+          </h2>
+          <p className="text-center mb-12 text-gray-600 max-w-2xl mx-auto">
+            Hosting is on your preferences or we will decide whick one to use if you don&apos;t have a preferences
+          </p>
+
+      <LogoSlider/>
       </div>
 
       {/* Pricing Section */}
-      <div className="bg-gray-50 py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-center mb-10 text-4xl font-semibold text-gray-900">
+      <div className="bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-center mb-4 text-4xl font-semibold text-gray-900">
             Our Pricing Plans
           </h2>
-          <p className="text-center mb-16 text-sm text-gray-600">
+          <p className="text-center mb-12 text-gray-600 max-w-2xl mx-auto">
             Choose the perfect animation package for your business needs
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl h-auto ${
+                className={`relative bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl flex flex-col ${
                   plan.isPopular ? "ring-2 ring-red-500" : ""
                 }`}
               >
                 {/* Popular Badge */}
                 {plan.isPopular && (
-                  <div className="absolute -top-0 -right-0 bg-red-500 text-white px-4 py-2 rounded-bl-xl rounded-tr-xl text-sm font-bold">
+                  <div className="absolute -top-0 -right-0 bg-red-500 text-white px-3 py-1 rounded-bl-xl rounded-tr-xl text-sm font-bold">
                     BEST SELLER
                   </div>
                 )}
 
                 {/* Header */}
-                <div className="text-center mb-8">
-                  <h3 className="quoteTitle mb-2">{plan.title}</h3>
-                  <p className="text-gray-500 text-sm mb-6">{plan.subtitle}</p>
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold mb-2">{plan.title}</h3>
+                  <p className="text-gray-500 text-sm mb-4">{plan.subtitle}</p>
 
                   {/* Price */}
-                  <div className="mb-4">
-                    <span className="text-5xl font-bold text-gray-900">
+                  <div className="mb-2">
+                    <span className="text-4xl font-bold text-gray-900">
                       {plan.price}
                     </span>
                   </div>
@@ -180,7 +198,7 @@ const page = () => {
                 </div>
 
                 {/* Features */}
-                <div className="space-y-4 mb-8">
+                <div className="space-y-3 mb-6 flex-grow">
                   {plan.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center">
                       <div className="flex-shrink-0 w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-3">
@@ -202,12 +220,12 @@ const page = () => {
                 </div>
 
                 {/* Buy Button */}
-                <button className="w-full cursor-pointer bg-teal-900 hover:bg-teal-800 text-white font-semibold py-3 px-6 rounded-full transition-colors duration-300">
+                <button className="w-full cursor-pointer bg-teal-900 hover:bg-teal-800 text-white font-semibold py-3 px-6 rounded-full transition-colors duration-300 mt-auto">
                   Buy Now
                 </button>
 
                 {/* Guarantee */}
-                <p className="text-center text-gray-400 text-xs mt-4">
+                <p className="text-center text-gray-400 text-xs mt-3">
                   100% Satisfied Guarantee
                 </p>
               </div>
@@ -215,23 +233,27 @@ const page = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#ededed] p-7 flex flex-col items-center justify-center">
-        <h2 className="text-5xl font-semibold text-center mb-5 ">
-          Lest Talk About Your Project
-        </h2>
-        <p className="text-center text-gray-600">
-          A quick discussion helps us fully understand your goals, timeline, and
-          expectations <br /> — ensuring you get the best possible results,
-          tailored to your needs.
-        </p>
-        <button className=" mt-5 cursor-pointer bg-teal-900 hover:bg-teal-800 text-white font-semibold py-3 px-6 rounded-full transition-colors duration-300">
-          Contact Us
-        </button>
+
+      {/* Contact Section */}
+      <div className="bg-gray-100 py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-semibold mb-4">
+            Let&apos;s Talk About Your Project
+          </h2>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            A quick discussion helps us fully understand your goals, timeline, and
+            expectations — ensuring you get the best possible results,
+            tailored to your needs.
+          </p>
+          <button className="cursor-pointer bg-teal-900 hover:bg-teal-800 text-white font-semibold py-3 px-8 rounded-full transition-colors duration-300">
+            Contact Us
+          </button>
+        </div>
       </div>
-      <Footer/>
-  
+
+      <Footer />
     </div>
   );
 };
 
-export default page;
+export default Page;
