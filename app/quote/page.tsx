@@ -1,4 +1,6 @@
 import { LogoSlider } from "@/components/LogoSlider";
+import { LogoSliderTwo } from "@/components/LogoSliderTwo";
+import Review from "@/components/Review";
 import React from "react";
 import { FaUsers, FaShieldAlt, FaChartLine } from "react-icons/fa";
 
@@ -153,6 +155,18 @@ const Page = () => {
 
       <LogoSlider/>
       </div>
+      <div>
+        <h2 className="text-center mt-5 text-4xl font-semibold text-gray-900">
+            Company We work With
+          </h2>
+          <p className="text-center mb-12 text-gray-600 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, ducimus!
+          </p>
+
+      <LogoSliderTwo/>
+      </div>
+
+      <Review/>
 
       {/* Pricing Section */}
       <div className="bg-gray-50 py-16">
