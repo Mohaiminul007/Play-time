@@ -1,6 +1,8 @@
-import { LogoSlider } from "@/components/LogoSlider";
+// import LogoReview from "@/components/LogoReview";
+import { LogoReview } from "@/components/LogoReview";
 import { LogoSliderTwo } from "@/components/LogoSliderTwo";
 import Review from "@/components/Review";
+import ToolsLogo from "@/components/ToolsLogo";
 import React from "react";
 import { FaUsers, FaShieldAlt, FaChartLine } from "react-icons/fa";
 
@@ -153,8 +155,11 @@ const Page = () => {
             Hosting is on your preferences or we will decide whick one to use if you don&apos;t have a preferences
           </p>
 
-      <LogoSlider/>
+          <ToolsLogo/>
+
+
       </div>
+      <LogoReview/>
       <div>
         <h2 className="text-center mt-5 text-4xl font-semibold text-gray-900">
             Company We work With
